@@ -18,6 +18,7 @@ namespace calebmantey
     
     public class FolderStructure: EditorWindow
     {
+        private static string _rootFolder = "_Project";
         private static List<string> _defaultFolders = new List<string>
         {
             "Art", "Audio", "Animations", "Documentation", "Materials", "Textures",
@@ -56,7 +57,7 @@ namespace calebmantey
             EditorGUILayout.HelpBox("Enter your custom folder names below:", MessageType.Info);
             EditorGUILayout.Space(10);
             _folderList.DoLayoutList();
-            
+
             if (GUILayout.Button("Create Folders"))
             {
                 CreateDefaultFolders();
@@ -80,6 +81,11 @@ namespace calebmantey
             // Company title or tool name
             CenteredText("Relu Interactives", EditorStyles.boldLabel);
             CenteredText("Folder Structure Generator", EditorStyles.largeLabel);
+            
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Root Folder:");
+            _rootFolder = EditorGUILayout.TextField(_rootFolder);
+            GUILayout.EndHorizontal();
 
             GUILayout.Space(10);
         }
@@ -97,7 +103,7 @@ namespace calebmantey
         {
             Debug.Log(Application.dataPath);
 
-            CreateDirectories("_Project", _defaultFolders.ToArray());
+            CreateDirectories(_rootFolder, _defaultFolders.ToArray());
             
             AssetDatabase.Refresh();
         }
