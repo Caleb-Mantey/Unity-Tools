@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
-namespace calebmantey
+namespace Relu.Tools
 {
     public class FolderGeneratorEditor : EditorWindow
     {
