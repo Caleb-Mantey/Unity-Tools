@@ -6,9 +6,14 @@ using UnityEngine;
 
 namespace Relu.Tools
 {
-    public class FolderGeneratorEditor : EditorWindow
+    public class ProjectGeneratorEditor : EditorWindow
     {
+        
+        private static string _companyName = "Relu";
+        private static string _productName = "Product Name";
+        private static string _rootNameSpace = "Relu";
         private static string _rootFolder = "_Project";
+        
         private static List<string> _defaultFolders = new List<string>
         {
             "Art", "Audio", "Animations", "Documentation", "Materials", "Textures",
@@ -39,7 +44,7 @@ namespace Relu.Tools
 
         public static void ShowWindow()
         {
-            GetWindow(typeof(FolderGeneratorEditor), false, "Folder Structure");
+            GetWindow(typeof(ProjectGeneratorEditor), false, "Folder Structure");
         }
 
         private void OnGUI()
@@ -56,7 +61,7 @@ namespace Relu.Tools
 
             if (GUILayout.Button("Create Folders"))
             {
-                CreateDefaultFolders();
+                SetupProject();
             }
             EditorGUILayout.Space(15);
             EditorGUILayout.EndScrollView();
@@ -79,7 +84,22 @@ namespace Relu.Tools
 
             // Company title or tool name
             CenteredText("Relu Interactives", EditorStyles.boldLabel);
-            CenteredText("Folder Structure Generator", EditorStyles.largeLabel);
+            CenteredText("Project Structure Generator", EditorStyles.largeLabel);
+            
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Company Name:");
+            _companyName = EditorGUILayout.TextField(_companyName);
+            GUILayout.EndHorizontal();
+            
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Product Name:");
+            _productName = EditorGUILayout.TextField(_productName);
+            GUILayout.EndHorizontal();
+            
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("C# Root Name Space:");
+            _rootNameSpace = EditorGUILayout.TextField(_rootNameSpace);
+            GUILayout.EndHorizontal();
             
             GUILayout.BeginHorizontal();
             GUILayout.Label("Root Folder:");
@@ -97,12 +117,19 @@ namespace Relu.Tools
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
         }
-        
-        public static void CreateDefaultFolders()
+
+        private static void SetupProject()
         {
             Debug.Log(Application.dataPath);
 
             CreateDirectories(_rootFolder, _defaultFolders.ToArray());
+            
+            PlayerSettings.productName = _productName;
+            PlayerSettings.companyName = _companyName;
+            EditorSettings.projectGenerationRootNamespace = _rootNameSpace;
+
+            // Refresh the asset database to save changes
+            AssetDatabase.SaveAssets();
             
             AssetDatabase.Refresh();
         }
