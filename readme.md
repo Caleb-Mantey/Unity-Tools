@@ -37,7 +37,7 @@ After installing the package, you can access it from the Unity editor:
 
 Note: Make sure to use unique folder names, and folders with the same name will not be created.
 
-![Screenshot](examples/folder_tools.png)
+![Screenshot](screenshot/folder_tools.png)
 
 ## Features
 
