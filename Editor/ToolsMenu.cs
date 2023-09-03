@@ -7,7 +7,7 @@ namespace Relu.Tools
     {
         private const string packageId = "com.example.yourpackagename"; // Replace with your package ID
         
-        [MenuItem("Relu/Tools/Create Default Folders")]
+        [MenuItem("Relu/Tools/Create Default Structure")]
         public static void SetupFolders()
         {
             ProjectGeneratorEditor.ShowWindow();
@@ -37,7 +37,7 @@ namespace Relu.Tools
             [MenuItem("Relu/Tools/XR/XR Interaction Toolkit/Install Samples")]
             public static void OpenPackage()
             {
-                
+                //PlayerSettings.op
             }
 
         #endregion
