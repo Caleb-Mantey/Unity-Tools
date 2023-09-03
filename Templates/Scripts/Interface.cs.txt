@@ -1,0 +1,13 @@
+//
+// Copyright (c) Relu Interactives. All right's reserved
+//
+
+#ROOTNAMESPACEBEGIN#
+    /// <summary>
+    /// #NAME#
+    /// </summary>
+    public interface #SCRIPTNAME#
+    {
+       
+    }
+#ROOTNAMESPACEEND#

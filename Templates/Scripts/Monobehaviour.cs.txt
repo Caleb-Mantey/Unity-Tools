@@ -1,0 +1,19 @@
+using UnityEngine;
+
+//
+// Copyright (c) Relu Interactives. All right's reserved
+//
+
+#ROOTNAMESPACEBEGIN#
+    /// <summary>
+    /// #NAME#
+    /// </summary>
+    public class #SCRIPTNAME# : MonoBehaviour
+    {
+        // Start is called before the first frame update
+        void Start()
+        {
+            #NOTRIM#
+        }
+    }
+#ROOTNAMESPACEEND#

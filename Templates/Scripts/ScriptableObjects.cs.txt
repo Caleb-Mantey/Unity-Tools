@@ -1,0 +1,16 @@
+using UnityEngine;
+
+//
+// Copyright (c) Relu Interactives. All right's reserved
+//
+
+#ROOTNAMESPACEBEGIN#
+    /// <summary>
+    /// #NAME#
+    /// </summary>
+    [CreateAssetMenu(fileName = "NewScriptableObject", menuName = "ScriptableObjects/#NAME#")]
+    public class #SCRIPTNAME# : ScriptableObject
+    {
+       
+    }
+#ROOTNAMESPACEEND#
