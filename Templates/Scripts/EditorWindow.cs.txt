@@ -1,0 +1,39 @@
+using UnityEngine;
+using UnityEditor;
+
+//
+// Copyright (c) Relu Interactives. All right's reserved
+//
+
+#ROOTNAMESPACEBEGIN#
+    /// <summary>
+    /// #NAME#
+    /// </summary>
+    public class #SCRIPTNAME# : EditorWindow
+    {
+        // Add your variables and properties here
+
+        [MenuItem("My Tools/Open My Editor Window")]
+        public static void OpenWindow()
+        {
+            // Create and show the window
+            #NAME# window = GetWindow<#NAME#>("My Editor");
+            window.Show();
+        }
+
+        private void OnGUI()
+        {
+            // Add your GUI elements and controls here
+            GUILayout.Label("My Custom Editor Window", EditorStyles.boldLabel);
+
+            // Example Button
+            if (GUILayout.Button("Do Something"))
+            {
+                // Add functionality for the button click here
+                Debug.Log("Button clicked!");
+            }
+
+            // Add more GUI elements as needed
+        }
+    }
+#ROOTNAMESPACEEND#

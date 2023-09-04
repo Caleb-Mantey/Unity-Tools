@@ -1,0 +1,21 @@
+using UnityEngine;
+using UnityEditor;
+
+//
+// Copyright (c) Relu Interactives. All right's reserved
+//
+
+#ROOTNAMESPACEBEGIN#
+    /// <summary>
+    /// #NAME#
+    /// </summary>
+    public class #SCRIPTNAME# : Editor
+    {
+        [MenuItem("My Tools/Do Something")]
+        private static void DoSomething()
+        {
+            // Add your editor script functionality here
+            Debug.Log("Editor script executed!");
+        }
+    }
+#ROOTNAMESPACEEND#
