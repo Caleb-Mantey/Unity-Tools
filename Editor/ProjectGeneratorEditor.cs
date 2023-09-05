@@ -11,9 +11,13 @@ namespace Relu.Tools
         
         private static string _companyName = "Relu";
         private static string _productName = "Product Name";
+        
         private static string _rootNameSpace = "Relu";
         private static string _rootFolder = "_Project";
         
+        private static string _updatedCompanyName = "Relu";
+        private static string _updatedProductName = "Product Name";
+
         private static List<string> _defaultFolders = new List<string>
         {
             "Art", "Audio", "Animations", "Documentation", "Materials", "Textures",
@@ -29,6 +33,33 @@ namespace Relu.Tools
             {
                 drawHeaderCallback = DrawHeader, drawElementCallback = DrawElement
             };
+            
+            // Subscribe to the delayCall event
+            EditorApplication.delayCall += OnDelayCall;
+        }
+        
+        private void OnDisable()
+        {
+            // Unsubscribe from the delayCall event when the window is closed
+            EditorApplication.delayCall -= OnDelayCall;
+        }
+        
+        private void OnDelayCall()
+        {
+            // Check if the user input has changed
+            if (_updatedProductName != _productName || _updatedCompanyName != _companyName)
+            {
+                // Handle the real-time input update here
+               // Debug.Log("User input changed: " + userInput);
+
+                // Update previousUserInput to match the current input
+                _updatedCompanyName = _companyName;
+                _updatedProductName = _productName;
+                _rootNameSpace = $"{_companyName}.{_productName}";
+            }
+
+            // Schedule the callback for the next frame
+            EditorApplication.delayCall += OnDelayCall;
         }
 
         private static void DrawHeader(Rect rect)
@@ -44,7 +75,7 @@ namespace Relu.Tools
 
         public static void ShowWindow()
         {
-            GetWindow(typeof(ProjectGeneratorEditor), false, "Folder Structure");
+            GetWindow(typeof(ProjectGeneratorEditor), false, "Project Structure");
         }
 
         private void OnGUI()

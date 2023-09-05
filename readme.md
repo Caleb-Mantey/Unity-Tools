@@ -16,7 +16,7 @@ This package is a tool for Unity that automates the creation of folders in the U
 
 ## Installation
 
-To install Your Package Name, follow these steps:
+To install Your Package, follow these steps:
 
 ### Option 1: Unity Package Manager (Recommended)
 
@@ -24,7 +24,7 @@ To install Your Package Name, follow these steps:
 2. Navigate to **Window** > **Package Manager**.
 3. Click on the **+** icon.
 4. Select **Add package from git URL...**.
-5. Enter the following Git URL in the input field: [https://github.com/Caleb-Mantey/Unity-Tools](https://github.com/Caleb-Mantey/Unity-Tools)
+5. Enter one of the following Git URL in the input field: [https://github.com/Caleb-Mantey/Unity-Tools](https://github.com/Caleb-Mantey/Unity-Tools) or [git@github.com:Caleb-Mantey/Unity-Tools.git](git@github.com:Caleb-Mantey/Unity-Tools.git)
 6. Click **Add** to import the package into your project.
 
 ## Usage
