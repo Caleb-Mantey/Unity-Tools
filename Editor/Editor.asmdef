@@ -1,7 +1,7 @@
 {
     "name": "Editor",
-    "rootNamespace": "",
-    "references": [],
+    "rootNamespace": "Relu.Editor",
+    "references": [ "calebmantey.Tools" ],
     "includePlatforms": [
         "Editor"
     ],
